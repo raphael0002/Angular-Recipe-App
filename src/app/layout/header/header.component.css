@@ -1,0 +1,21 @@
+.wrapper{
+    height: 80px;
+    width: 100%;
+
+    border-bottom: 1px solid rgb(230, 230, 230);
+    padding: 20px 10px;
+
+    .logo{
+        height: 80px;
+        object-fit:contain;
+    }
+}
+
+.active {
+    color: rgb(37 99 235);
+  }
+
+/* .wrapper, .logo{
+    height: 80px;
+    object-fit: contain;
+} */

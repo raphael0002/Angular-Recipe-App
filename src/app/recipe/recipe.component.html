@@ -1,0 +1,77 @@
+<div class="wrapper add-new">
+    <div class="search_addnew">
+        <div class="search_wrap search_wrap_6">
+            <div class="search_box">
+                <input type="text" class="input" placeholder="Enter a recipe...">
+                <div class="btn">
+                    <p>Search</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <button type="button" class="add-btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="openModal()">Add Recipe</button>
+    </div>
+</div>
+
+<div class="recipe-add-list">
+    <div class="recipe-cards">
+        <div class="container">
+          @if (recipeList.length !== 0) {
+          <div class="row2">
+            @for (item of recipeList; track $index) {
+            <div class="card-box">
+              <div class="card-header">
+                <h2>{{item.recipeName}}</h2>
+              </div>
+              <div class="card-body">
+                <p>{{item.ingredients}}</p>
+                <p>{{item.instruction}}</p>
+              </div> 
+              <div class="card-btn">
+                <button class="btn add-recipe" (click)="onDelete(item)">Delete</button>
+                <button class="btn add-recipe" (click)="onEdit(item)">Edit</button>
+                <span class="overlay"></span>
+              </div>
+            </div>
+          }
+            
+          </div>
+        }
+        </div>
+        
+        <div class="modal" #myModal (click)="onClickOutsideModal($event)">
+          <div class="modal-content">
+            <div class="card">
+              <span class="close" (click)="closeModal()">&times;</span>
+              <div class="card-header">
+                <h2>Add Recipe</h2>
+              </div>
+              <div class="card-body">
+                <form>
+                  <div>
+                  <label for="recipeName">Recipe Name:</label><br>
+                  <input type="text" id="recipeName" name="recipeName" [(ngModel)]="Recipe.recipeName"><br><br>
+                  </div>
+                  <div>
+                  <label for="ingredients">Ingredients:</label><br>
+                  <textarea id="ingredients" name="ingredients" [(ngModel)]="Recipe.ingredients"></textarea><br><br>
+                  </div>
+                  <div>
+                  <label for="instructions">Instructions:</label><br>
+                  <textarea id="instructions" name="instructions" [(ngModel)]="Recipe.instruction"></textarea><br><br>
+                  </div>
+                  @if (Recipe.id == 0) {
+                  <button type="submit" (click)="addRecipe()">Add Recipe</button>
+                  }@else {
+                    <button type="submit" (click)="updateRecipe()">Update</button>
+                  }
+                </form>
+              </div>
+            </div>    
+          </div>
+        </div>
+        
+      </div>
+    </div>
+

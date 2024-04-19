@@ -1,0 +1,23 @@
+<header>
+    <nav>
+        <a class="navbar-brand" href="#">Recipe App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div >
+            <ul>
+                <li>
+                    <a routerLink="/search" routerLinkActive="router-link-active" >Search Recipes</a>
+                </li>
+                <li >
+                    <a routerLink="/recipes">Recipes List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  </header>
+  
+  <main>
+    <router-outlet></router-outlet>
+  </main>
