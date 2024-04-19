@@ -15,6 +15,6 @@ export const routes: Routes = [
         path: "recipe",
         component:RecipeComponent
     },
-    { path: 'search', component: RecipeSearchComponent },
-    { path: 'recipes', component: RecipeListComponent }
+    // { path: 'search', component: RecipeSearchComponent },
+    // { path: 'recipes', component: RecipeListComponent }
 ];

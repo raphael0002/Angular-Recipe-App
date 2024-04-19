@@ -1,15 +1,13 @@
-<div>
-    <h2>Recipes</h2>
-    <div>
-        <div *ngFor="let recipe of recipes">
-            <div >
-                <img [src]="recipe.image" class="card-img-top" alt="Recipe Image">
-                <div>
-                    <h5>{{ recipe.title }}</h5>
-                    <p>{{ recipe.summary }}</p>
-                   
-                </div>
+<div  class="recipe-container">
+    <div *ngFor="let recipe of recipes">
+        <div class="card">
+            <img [src]="recipe.image" class="card-img-top" alt="Recipe Image">
+            <div>
+                <h5>{{ recipe.title }}</h5>
+                <p>{{ recipe.summary }}</p>
+                
             </div>
         </div>
     </div>
 </div>
+ 

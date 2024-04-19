@@ -1,0 +1,17 @@
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(144, 144, 144);
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    flex: 1;
+}
+
+.recipe-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+}
