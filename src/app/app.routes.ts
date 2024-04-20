@@ -5,7 +5,7 @@ import { RecipeSearchComponent } from './home/recipe-search/recipe-search.compon
 import { RecipeListComponent } from './home/recipe-list/recipe-list.component';
 
 export const routes: Routes = [
-    // { path: '', redirectTo: '/search', pathMatch: 'full' },
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
 
     {
         path: "home",
