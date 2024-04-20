@@ -39,3 +39,17 @@
     font-size: 30px;
     font-weight: 500;
   }
+
+  /*.....*/
+.recipe-card{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid grey;
+  padding: 7px;
+  margin-top: 20px;
+}
+
+.recipe-card img{
+  max-height: 300px;
+
+}

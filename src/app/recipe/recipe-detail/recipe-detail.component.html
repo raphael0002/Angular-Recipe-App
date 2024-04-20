@@ -1,9 +1,8 @@
-<div class="recipe-image">
-    <img src="" alt="">
-</div>
+<div class="recipe-card">
+    <img [src]="recipe.imagePath" alt="{{recipe.name}}">
 
 <div class="recipe-header">
-    <h1>Recipe Name</h1>
+    <h1>{{recipe.name}}</h1>
 </div>
 
 <div>
@@ -17,8 +16,9 @@
 </div>
 
 <div>
-    <p>Description</p>
+    <p>{{recipe.description}}</p>
 </div>
 <div>
     <p>Ingredients</p>
+</div>
 </div>

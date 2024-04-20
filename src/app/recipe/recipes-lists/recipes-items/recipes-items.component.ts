@@ -1,6 +1,6 @@
 import { NgFor } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Recipe } from '../../recipe.model';
+import { FoodRecipe } from '../../recipe.model';
 
 @Component({
   selector: 'app-recipes-items',
@@ -9,10 +9,14 @@ import { Recipe } from '../../recipe.model';
   templateUrl: './recipes-items.component.html',
   styleUrl: './recipes-items.component.css'
 })
-export class RecipesItemsComponent{
-  @Input() recipe: Recipe;
+export class RecipesItemsComponent implements OnInit{
+  
+  @Input() recipe: FoodRecipe;
   @Output() recipeSelected = new EventEmitter();
 
+  ngOnInit(): void {
+    
+    }
   onSelected(){
     this.recipeSelected.emit();
   }

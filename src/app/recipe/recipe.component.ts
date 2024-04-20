@@ -1,16 +1,20 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RecipesListsComponent } from "./recipes-lists/recipes-lists.component";
 import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
+import { CommonModule } from '@angular/common';
+import { FoodRecipe} from './recipe.model';
 
 @Component({
     selector: 'app-recipe',
     standalone: true,
     templateUrl: './recipe.component.html',
     styleUrl: './recipe.component.css',
-    imports: [FormsModule, RecipesListsComponent, RecipeDetailComponent]
+    imports: [FormsModule, RecipesListsComponent, RecipeDetailComponent,CommonModule]
 })
-export class RecipeComponent {
+export class RecipeComponent implements OnInit {
+  selectedRecipe: FoodRecipe;
+
   @ViewChild('myModal') modal!: ElementRef;
   Recipe : Recipe = new Recipe();
   recipeList: Recipe[] = [];

@@ -77,11 +77,17 @@
 
 <div class="Container">
   <div class="recipe-list-container">
-    <app-recipes-lists ></app-recipes-lists>
+    <app-recipes-lists 
+    (recipeThatSelected)="selectedRecipe = $event"></app-recipes-lists>
   </div>
 
   <div class="recipe-detail-container">
-    <app-recipe-detail></app-recipe-detail>
+    <app-recipe-detail 
+            *ngIf="selectedRecipe; else infoText"
+            [recipe]="selectedRecipe"></app-recipe-detail>
+        <ng-template #infoText>
+            <p>Please select a recipe</p>
+        </ng-template>
   </div>
 </div>
 
