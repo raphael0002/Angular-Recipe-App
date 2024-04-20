@@ -21,6 +21,8 @@ export class ApiService {
         
         this.http.get(url, { headers }).subscribe((data: any) => {
             this.recipeSubject.next(data.results);
+            console.log(data.results);
         });
   }
-}
+ }
+

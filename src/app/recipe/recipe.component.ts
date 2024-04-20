@@ -1,12 +1,14 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RecipesListsComponent } from "./recipes-lists/recipes-lists.component";
+import { RecipeDetailComponent } from "./recipe-detail/recipe-detail.component";
 
 @Component({
-  selector: 'app-recipe',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './recipe.component.html',
-  styleUrl: './recipe.component.css'
+    selector: 'app-recipe',
+    standalone: true,
+    templateUrl: './recipe.component.html',
+    styleUrl: './recipe.component.css',
+    imports: [FormsModule, RecipesListsComponent, RecipeDetailComponent]
 })
 export class RecipeComponent {
   @ViewChild('myModal') modal!: ElementRef;

@@ -161,3 +161,19 @@
   button:hover {
     background-color: #0056b3;
   }
+
+
+  /*recipe CRUD*/
+  .Container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .recipe-list-container{
+    flex: 1;
+  }
+
+  .recipe-detail-container{
+    flex: 1;
+  }

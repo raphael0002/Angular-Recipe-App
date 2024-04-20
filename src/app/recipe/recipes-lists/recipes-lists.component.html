@@ -1,0 +1,7 @@
+<div>
+    <app-recipes-items
+    *ngFor="let recipe of recipes"
+    [recipe]="recipe"
+    (recipeSelected)="onRecipeSelected(recipe)"></app-recipes-items>
+</div>
+

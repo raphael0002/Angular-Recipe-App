@@ -1,0 +1,25 @@
+
+/* .cards{
+    width: 70%;
+    margin: 10px 0px;
+    border: 2px solid rgb(231, 230, 230);
+    border-radius: 5px;
+    transition: all 0.2.5s;
+}
+
+.cards a{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 5px 10px;
+
+}
+
+.cards span img{
+    max-height: 60px;
+}
+
+.cards:hover{
+    background-color: rgb(231, 230, 230);
+    border-color:rgb(231, 230, 230) ;
+} */
