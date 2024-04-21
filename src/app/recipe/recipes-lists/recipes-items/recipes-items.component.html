@@ -1,5 +1,5 @@
    <div class="cards">
-   <a (click)="onSelected()">
+   <a [routerLink]="[index]" routerLinkActive="router-link-active" >
         <div>
             <h4>{{recipe.name}}</h4>
             <p>{{recipe.description}}</p>

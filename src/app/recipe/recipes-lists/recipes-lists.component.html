@@ -1,7 +1,21 @@
+<div class="btns">
+    <div>
+    <button type="button" class="add-btn mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="onNewRecipe()">Add Recipe</button>
+    </div>
+    <div class="dropdown">
+        <span>Manage</span>
+        <ul class="dropdown-content">
+            <li><a (click)="onSaveData()">Save Data</a></li>
+            <li><a (click)="onFetchData()">Fetch Data</a></li>
+        </ul>
+    </div>
+</div>
+
 <div>
     <app-recipes-items
-    *ngFor="let recipe of recipes"
+    *ngFor="let recipe of recipes; let i = index"
     [recipe]="recipe"
-    (recipeSelected)="onRecipeSelected(recipe)"></app-recipes-items>
+    [index]="i"
+></app-recipes-items>
 </div>
 

@@ -8,13 +8,10 @@
                 </div>
             </div>
         </div>
-        
-
-        <button type="button" class="add-btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-1 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="openModal()">Add Recipe</button>
     </div>
 </div>
 
-<div class="recipe-add-list">
+<!-- <div class="recipe-add-list">
     <div class="recipe-cards">
         <div class="container">
           @if (recipeList.length !== 0) {
@@ -73,21 +70,16 @@
         </div>
         
       </div>
-    </div>
+    </div> -->
 
 <div class="Container">
   <div class="recipe-list-container">
-    <app-recipes-lists 
-    (recipeThatSelected)="selectedRecipe = $event"></app-recipes-lists>
+    <app-recipes-lists ></app-recipes-lists>
   </div>
 
   <div class="recipe-detail-container">
-    <app-recipe-detail 
-            *ngIf="selectedRecipe; else infoText"
-            [recipe]="selectedRecipe"></app-recipe-detail>
-        <ng-template #infoText>
-            <p>Please select a recipe</p>
-        </ng-template>
+    <router-outlet></router-outlet>
+    
   </div>
 </div>
 

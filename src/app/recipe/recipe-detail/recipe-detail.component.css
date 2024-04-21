@@ -44,12 +44,14 @@
 .recipe-card{
   display: flex;
   flex-direction: column;
-  border: 2px solid grey;
-  padding: 7px;
-  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  margin-top: 10px;
+  padding: 10px;
 }
 
 .recipe-card img{
   max-height: 300px;
+  max-width: 400px;
 
 }

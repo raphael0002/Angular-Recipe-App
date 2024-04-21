@@ -1,23 +1,24 @@
 import { NgFor } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit} from '@angular/core';
 import { FoodRecipe } from '../../recipe.model';
+import { RouterLink } from '@angular/router';
+import { DataStorageServiceTsService } from '../../../shared/data-storage.service.ts.service';
 
 @Component({
   selector: 'app-recipes-items',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,RouterLink],
   templateUrl: './recipes-items.component.html',
-  styleUrl: './recipes-items.component.css'
+  styleUrl: './recipes-items.component.css',
+  providers:[DataStorageServiceTsService]
 })
 export class RecipesItemsComponent implements OnInit{
   
   @Input() recipe: FoodRecipe;
-  @Output() recipeSelected = new EventEmitter();
+  @Input() index: number;
+
 
   ngOnInit(): void {
     
     }
-  onSelected(){
-    this.recipeSelected.emit();
-  }
 }

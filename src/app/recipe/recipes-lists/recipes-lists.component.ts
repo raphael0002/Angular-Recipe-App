@@ -2,31 +2,47 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RecipesItemsComponent } from "./recipes-items/recipes-items.component";
 import { FoodRecipe } from '../recipe.model';
 import { CommonModule, NgFor } from '@angular/common';
+import { RecipesService } from '../../servies/recipes.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { DataStorageServiceTsService } from '../../shared/data-storage.service.ts.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
     selector: 'app-recipes-lists',
     standalone: true,
     templateUrl: './recipes-lists.component.html',
     styleUrl: './recipes-lists.component.css',
-    imports: [RecipesItemsComponent,NgFor,CommonModule]
+    imports: [RecipesItemsComponent,NgFor,CommonModule,HttpClientModule],
+    providers:[DataStorageServiceTsService]
 })
 export class RecipesListsComponent implements OnInit {
-    @Output() recipeThatSelected = new EventEmitter();
+    recipes: FoodRecipe[] = [];
 
-    recipes: FoodRecipe[] = [
-        new FoodRecipe("Chicken Biryani1", "This is simply biryani1", "https://glebekitchen.com/wp-content/uploads/2019/12/chickenbiryanibowltop.jpg"),
+  constructor(private recipeService: RecipesService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private dataStorageService: DataStorageServiceTsService) {
+}
+  onSaveData() {
+    this.dataStorageService.storeRecipes();
+  }
+  
+  onFetchData() {
+    this.dataStorageService.fetchRecipes();
+  }
 
-        new FoodRecipe("Chicken Biryani", "This is simply biryani", "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/hyderabadi-biryani-recipe-chicken.jpg"),
-        new FoodRecipe("Chicken Biryani", "This is simply biryani", "https://www.indianhealthyrecipes.com/wp-content/uploads/2022/02/hyderabadi-biryani-recipe-chicken.jpg")
-    ];
+  ngOnInit() {
+    this.recipeService.recipesChanged
+      .subscribe(
+        (recipes: FoodRecipe[]) => {
+          this.recipes = recipes;
+        }
+      );
+      
+    this.recipes = this.recipeService.getRecipes();
+  }
 
-
-    constructor(){}
-    ngOnInit(): void {
-    }
-
-    onRecipeSelected(recipe: FoodRecipe){
-        this.recipeThatSelected.emit(recipe);
-    }
-
+  onNewRecipe() {
+    this.router.navigate(['new'], {relativeTo: this.route});
+  }
 }

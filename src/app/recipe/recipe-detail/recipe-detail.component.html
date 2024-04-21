@@ -9,8 +9,8 @@
     <div class="dropdown">
         <span>Manage Recipe</span>
         <ul class="dropdown-content">
-            <li><a href="">Edit Recipe</a></li>
-            <li><a href="">Delete Recipe</a></li>
+            <li><a (click)="onEditRecipe()">Edit Recipe</a></li>
+            <li><a (click)="onDeleteRecipe()">Delete Recipe</a></li>
         </ul>
     </div>
 </div>
@@ -19,6 +19,10 @@
     <p>{{recipe.description}}</p>
 </div>
 <div>
-    <p>Ingredients</p>
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">
+            {{ ingredient.name }} - {{ ingredient.amount }}
+        </li>
+    </ul>
 </div>
 </div>
